@@ -10,3 +10,11 @@ FROM jsixc/node-yarn-app:4
 
 EXPOSE 8080
 ```
+
+or just a `docker-compose.yml` file
+```
+myapp:
+    image: jsixc/node-yarn-app:4
+    ports:
+        - "8000"
+```
