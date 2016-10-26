@@ -15,9 +15,9 @@ WORKDIR /home/app
 # install depedencies.
 # This is a separate step so it can be cached and the
 # cache is used when not changing depedencies
-COPY package.json yarn.lock /home/app/
-RUN yarn install --pure-lockfile
+ONBUILD COPY package.json yarn.lock /home/app/
+ONBUILD RUN yarn install --pure-lockfile
 
-COPY . /home/app
+ONBUILD COPY . /home/app
 
 CMD [ "npm", "start" ]
