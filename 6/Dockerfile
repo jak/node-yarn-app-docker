@@ -20,4 +20,4 @@ ONBUILD RUN yarn install --pure-lockfile
 
 ONBUILD COPY . /home/app
 
-CMD [ "npm", "start" ]
+CMD [ "yarn", "run", "start" ]
