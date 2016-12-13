@@ -8,7 +8,6 @@ RUN apt-key adv --keyserver pgp.mit.edu --recv D101F7899D41F3C3 && \
 # Create a user called `app`
 RUN useradd -ms /bin/bash app
 # Switch to running as the user called app
-USER app
 WORKDIR /home/app
 
 # Copy across package.json and yarn.lock and
@@ -19,5 +18,7 @@ ONBUILD COPY package.json yarn.lock /home/app/
 ONBUILD RUN yarn install --pure-lockfile
 
 ONBUILD COPY . /home/app
+ONBUILD RUN chown -R app:app /home/app
+ONBUILD USER app
 
 CMD [ "yarn", "run", "start" ]
