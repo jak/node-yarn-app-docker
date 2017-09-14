@@ -1,7 +1,7 @@
 require 'erb'
 
 task :generate do
-    versions = [4,6,7]
+    versions = [4,6,7,8]
     versions.each do |v|
 		build_opts = OpenStruct.new(version: v)
   		dockerfile = ERB.new(File.read("./Dockerfile.erb"))
